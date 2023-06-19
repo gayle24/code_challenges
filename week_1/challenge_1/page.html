@@ -6,27 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Grade Calculator</title>
 </head>
-<body>
-    <h1>Student Grade Calculator</h1>
+<body style="background-color: darkgrey; padding: 0;">
+    <h1 style="color:chocolate">Student Grade Calculator</h1>
     <div class="container">
-        <div class = "screen-body-item">
-            <div class="app">
         <!--Taking in grade values-->
-                <div class="form-group">
-                    Enter your Entry exam marks:  <input type="text" class ="grade-form" id="entry">
-                </div>
-                <br>
-                <div class="form-group">
-                    Enter your Mid term exam marks: <input type="text" class ="grade-form" id="mid">
-                </div>
-                <br>
-                <div class="form-group">
-                    Enter your Endterm exam marks: <input type="text" class ="grade-form" id="end">
-                </div>
-                <br>
-                <div>
-                    <input type="button" value ="Grade" class = "form-button" onclick="calculate()">
-                </div>
+            <div class="form-group">
+                Enter your Entry exam marks:  <input type="text" class ="grade-form" id="entry">
+            </div>
+            <br>
+            <div class="form-group">
+                Enter your Mid term exam marks: <input type="text" class ="grade-form" id="mid">
+            </div>
+            <br>
+            <div class="form-group">
+                Enter your Endterm exam marks: <input type="text" class ="grade-form" id="end">
+            </div>
+            <br>
+            <div>
+                <!--button to execute grade calculation-->
+                <button type="button" value ="Grade" id = "calculateGrade" class = "form-button" onclick="calculateGrade()">Calculate</button>
             </div>
         </div>
         <div class = "form-group showdata">
@@ -34,17 +32,17 @@
         </div>
     </div>
 
-
+<!--javascript code inducted by clicking of the button-->
     <script>
-        const calculate = () => {
+       function calculateGrade() {
 
-let entryExam = document.querySelector(#entry).value;
-let midExam = document.querySelector(#mid).value;
-let endExam = document.querySelector(#end).value;
+//extracting the value inputs from the html form
+let entryExam = parseFloat(document.getElementById('entry').value);
+let midExam = parseFloat(document.getElementById('mid').value);
+let endExam = parseFloat(document.getElementById('end').value);
+
 let grades = "";
-
-
-let totalGrades = parseFloat(entryExam) + parseFloat(midExam) + parseFloat(endExam);
+let totalGrades = entryExam + midExam + endExam;
 
 let percentage = (totalGrades / 300) * 100;
 if (percentage <=100 && percentage >79) {
@@ -74,6 +72,7 @@ if (entryExam == ""|| midExam == "" || endExam == "") { document.querySelector("
    }
 
 }
+
     </script>
 </body>
 </html>
