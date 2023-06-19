@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grade Calculator</title>
+</head>
+<body style="background-color: darkgrey; padding: 0;">
+    <h1 style="color:chocolate">Student Grade Calculator</h1>
+        <!--Taking in grade values-->
+            <div>
+                Enter your Entry exam marks:  <input type="text" id="entry">
+            </div>
+            <br>
+            <div>
+                Enter your Mid term exam marks: <input type="text" id="mid">
+            </div>
+            <br>
+            <div>
+                Enter your Endterm exam marks: <input type="text" id="end">
+            </div>
+            <br>
+            <div>
+                <!--button to execute grade calculation-->
+                <button type="button" id = "calculateGrade" onclick="calculateGrade()">Calculate</button>
+            </div>
+        </div>
+        <br>
+        <div>
+            <p id="grade-result"></p>
+        </div>
+    </div>
+
+<!--javascript code inducted by clicking of the button-->
+    <script>
+       function calculateGrade() {
+
+//extracting the value inputs from the html form
+let entryExam = parseFloat(document.getElementById('entry').value);
+let midExam = parseFloat(document.getElementById('mid').value);
+let endExam = parseFloat(document.getElementById('end').value);
+
+let grades = "";
+let totalGrades = entryExam + midExam + endExam;
+
+let percentage = (totalGrades / 300) * 100;
+if (percentage <=100 && percentage >79) {
+    grades = "A";
+} else if (percentage <=79 && percentage >60) {
+    grades = "B";
+} else if (percentage <=59 && percentage > 49) {
+    grades = "C";
+} else if (percentage <=49 && percentage > 40) {
+    grades = "D";
+} else if (percentage <= 40) {
+    grades = "E";
+} else {
+    grades = "F";
+}
+
+// Checking the values are empty if empty than
+// show please fill them
+if (entryExam == ""|| midExam == "" || endExam == "") { document.getElementById("grade-result").innerHTML = "Please enter all the fields";
+} else {
+
+
+   document.getElementById('grade-result').innerHTML =
+      ` Your term percentage is ${percentage}%. <br>
+      Your term grade is ${grades}.`;
+   }
+
+}
+
+    </script>
+</body>
+</html>
+
+
