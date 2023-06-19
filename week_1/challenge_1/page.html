@@ -10,25 +10,25 @@
     <h1 style="color:chocolate">Student Grade Calculator</h1>
         <!--Taking in grade values-->
             <div>
-                Enter your Entry exam marks:  <input type="text" class ="grade-form" id="entry">
+                Enter your Entry exam marks:  <input type="text" id="entry">
             </div>
             <br>
             <div>
-                Enter your Mid term exam marks: <input type="text" class ="grade-form" id="mid">
+                Enter your Mid term exam marks: <input type="text" id="mid">
             </div>
             <br>
             <div>
-                Enter your Endterm exam marks: <input type="text" class ="grade-form" id="end">
+                Enter your Endterm exam marks: <input type="text" id="end">
             </div>
             <br>
             <div>
                 <!--button to execute grade calculation-->
-                <button type="button" value ="Grade" id = "calculateGrade" class = "form-button" onclick="calculateGrade()">Calculate</button>
+                <button type="button" id = "calculateGrade" onclick="calculateGrade()">Calculate</button>
             </div>
         </div>
         <br>
         <div>
-            <p id="showdata"></p>
+            <p id="grade-result"></p>
         </div>
     </div>
 
@@ -61,14 +61,13 @@ if (percentage <=100 && percentage >79) {
 
 // Checking the values are empty if empty than
 // show please fill them
-if (entryExam == ""|| midExam == "" || endExam == "") { document.querySelector("#showdata").innerHTML = "Please enter all the fields";
+if (entryExam == ""|| midExam == "" || endExam == "") { document.getElementById("grade-result").innerHTML = "Please enter all the fields";
 } else {
 
 
-   document.getElementById('showdata').innerHTML =
-      ` Your total term grade is ${totalgrades}
-      and percentage is ${percentage}%. <br>
-      Your grade is ${grades}.`;
+   document.getElementById('grade-result').innerHTML =
+      ` Your term percentage is ${percentage}%. <br>
+      Your term grade is ${grades}.`;
    }
 
 }
