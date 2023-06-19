@@ -8,17 +8,16 @@
 </head>
 <body style="background-color: darkgrey; padding: 0;">
     <h1 style="color:chocolate">Student Grade Calculator</h1>
-    <div class="container">
         <!--Taking in grade values-->
-            <div class="form-group">
+            <div>
                 Enter your Entry exam marks:  <input type="text" class ="grade-form" id="entry">
             </div>
             <br>
-            <div class="form-group">
+            <div>
                 Enter your Mid term exam marks: <input type="text" class ="grade-form" id="mid">
             </div>
             <br>
-            <div class="form-group">
+            <div>
                 Enter your Endterm exam marks: <input type="text" class ="grade-form" id="end">
             </div>
             <br>
@@ -27,8 +26,9 @@
                 <button type="button" value ="Grade" id = "calculateGrade" class = "form-button" onclick="calculateGrade()">Calculate</button>
             </div>
         </div>
-        <div class = "form-group showdata">
-            <input type="textbox" id="showdata">
+        <br>
+        <div>
+            <p id="showdata"></p>
         </div>
     </div>
 
@@ -65,7 +65,7 @@ if (entryExam == ""|| midExam == "" || endExam == "") { document.querySelector("
 } else {
 
 
-   document.querySelector("#showdata").innerHTML =
+   document.getElementById('showdata').innerHTML =
       ` Your total term grade is ${totalgrades}
       and percentage is ${percentage}%. <br>
       Your grade is ${grades}.`;
