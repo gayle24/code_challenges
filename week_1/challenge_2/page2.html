@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Calculator</title>
+</head>
+<!--simple styling for the body-->
+<body style="background-color: antiquewhite; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+    <div>
+        <!--car speed input textbox-->
+        <label for="speed">Enter the car speed</label>
+        <input type="number" id="speed">
+    </div>
+    <br>
+    <div>
+        <!--creating button that initializes js function to evaluate car speed-->
+        <button type ="button" onclick="calculateSpeed()">Calculate</button>
+    </div>
+    <br>
+    <div>
+        <!--paragraph to display car speed evaluation-->
+        <p id="speed_result"></p>
+    </div>
+    <script>
+      //speed calculator js bit
+  function calculateSpeed() {
+ 
+    const speed = parseInt(document.getElementById('speed').value);
+    let points = 0;
+    //if speed is < 70 the message "Ok" is shown on the page
+    if (speed < 70) {
+      document.getElementById('speed_result').textContent = 'Ok';
+    } else {
+    //calculating number of points driver has according to his/her speed 
+      points = Math.floor((speed - 70) / 5);
+       
+      if (points > 12) {
+        document.getElementById('speed_result').textContent = 'License suspended';
+      } else {
+        document.getElementById('speed_result').textContent = 'Points: ' + points;
+      }
+    }
+  }
+  
+    </script>
+</body>
+</html>
